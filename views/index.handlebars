@@ -12,23 +12,26 @@
   {{/unless}}
   {{/each}}
 </ul> --}}
+<div class="row">
 
   {{#each burger}}
   {{#unless devoured}}
   <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">{{burger_name}}</h5>
-    <p class="card-text">This burger is not devoured yet!</p>
+    <p class="card-text">Not devoured yet!</p>
     <a href="#" class="btn btn-primary devour" data-id="{{id}}" data-devoured="false">Devour</a>
   </div>
   </div>
   {{/unless}}
   {{/each}}
 
+</div>
+  
 
-<h2>Already devoured!</h2>
+<h2>Already devoured:</h2>
 
-<ul>
+{{!-- <ul>
   {{#each burger}}
   {{#if devoured}}
      <li>
@@ -37,13 +40,29 @@
     </li>
   {{/if}}
   {{/each}}
-</ul>
+</ul> --}}
+
+<div class="row">
+  {{#each burger}}
+  {{#if devoured}}
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{burger_name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Careful! You won't get to eat this burger again...</h6>
+    <div class="card-text">Delete this burger</div>
+    <a href="#" class="btn btn-warning delete" data-id="{{id}}">Delete</a>
+  </div>
+  </div>
+  {{/if}}
+  {{/each}}
+</div>
+
 
 <h2>Add a Eat-a-Burger!</h2>
 <form id="create">
   <div class="form-group">
     <label for="newBurger">Burger name:</label>
     <input type="text" id="newBurger" name="name">
+    <button type="submit" class="btn btn-success">Add burger</button>
   </div>
-  <button type="submit">Add Burger</button>
 </form>
