@@ -2,7 +2,7 @@
 
 <h2>Burgers to be devoured:</h2>
 
-<ul>
+{{!-- <ul>
   {{#each burger}}
   {{#unless devoured}}
     <li>
@@ -11,7 +11,20 @@
     </li>
   {{/unless}}
   {{/each}}
-</ul>
+</ul> --}}
+
+  {{#each burger}}
+  {{#unless devoured}}
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{burger_name}}</h5>
+    <p class="card-text">This burger is not devoured yet!</p>
+    <a href="#" class="btn btn-primary devour" data-id="{{id}}" data-devoured="false">Devour</a>
+  </div>
+  </div>
+  {{/unless}}
+  {{/each}}
+
 
 <h2>Already devoured!</h2>
 
